@@ -1,0 +1,63 @@
+
+#flexbox{
+    .flex-row{
+        display: flex; /* or inline-flex */
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    
+    .flex-row-inverse{
+        display: flex; /* or inline-flex */
+        flex-direction: row-reverse;
+    }
+    
+    .flex-col{
+        display: flex; /* or inline-flex */
+        flex-direction: column;
+    }
+    
+    .flex-col-inverse{
+        display: flex; /* or inline-flex */
+        flex-direction: column-reverse;
+    }
+    
+    .flex{
+        flex: 1;
+    }
+}
+
+.make-flexbox(@class){
+    .flex-@{class}-row{
+        #flexbox.flex-row();
+    }
+    
+    .flex-@{class}-row-inverse{
+        #flexbox.flex-row-inverse();
+    }
+    
+    .flex-@{class}-col{
+        #flexbox.flex-col();
+    }
+    
+    .flex-@{class}-col-inverse{
+        #flexbox.flex-col-inverse();
+    }
+    
+    .flex-@{class}{
+        #flexbox.flex();
+    }
+}
+
+.make-flexbox(xs);
+
+@media (min-width: @screen-sm-min) {
+    .make-flexbox(sm);
+}
+// Medium flexbox
+@media (min-width: @screen-md-min) {
+    .make-flexbox(md);
+}
+// Large flexbox
+@media (min-width: @screen-lg-min) {
+    .make-flexbox(lg);
+}
